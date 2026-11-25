@@ -20,6 +20,29 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter build web --base-href "/${GITHUB_REPOSITORY#*/}/" --no-web-resources-cdn
+      - name: Version the web entry points
+        working-directory: build/web
+        run: |
+          python3 - <<'PYTHON'
+          import os
+          from pathlib import Path
+
+          version = os.environ["GITHUB_SHA"][:12]
+          entry = f"main.{version}.dart.js"
+          bootstrap = f"flutter_bootstrap.{version}.js"
+          audio = f"audio.{version}.js"
+
+          loader = Path("flutter_bootstrap.js").read_text()
+          assert '"mainJsPath":"main.dart.js"' in loader
+          Path(bootstrap).write_text(loader.replace("main.dart.js", entry))
+          Path("main.dart.js").rename(entry)
+          Path("audio.js").rename(audio)
+
+          index = Path("index.html")
+          html = index.read_text()
+          assert 'src="flutter_bootstrap.js"' in html and 'src="audio.js"' in html
+          index.write_text(html.replace("flutter_bootstrap.js", bootstrap).replace("audio.js", audio))
+          PYTHON
       - uses: actions/upload-pages-artifact@v4
         with:
           path: build/web
