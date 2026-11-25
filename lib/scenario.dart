@@ -20,25 +20,29 @@ const Map<Topic, GuideStep> scenario = {
     ],
   ),
   Topic.control: (
-    message: 'Kontrolowanie kontaktów i odcinanie od bliskich mogą być formami przemocy psychicznej. Który temat chcesz otworzyć dalej?',
+    message:
+        'Kontrolowanie kontaktów i odcinanie od bliskich mogą być formami przemocy psychicznej. Który temat chcesz otworzyć dalej?',
     choices: [
       (label: 'Chcę przygotować plan', next: Topic.plan),
       (label: 'Szukam kontaktu do pomocy', next: Topic.help),
     ],
   ),
   Topic.threats: (
-    message: 'Groźby, ciągłe wyzwiska i poniżanie mogą być formami przemocy psychicznej. Który temat chcesz otworzyć dalej?',
+    message:
+        'Groźby, ciągłe wyzwiska i poniżanie mogą być formami przemocy psychicznej. Który temat chcesz otworzyć dalej?',
     choices: [
       (label: 'Chcę przygotować plan', next: Topic.plan),
       (label: 'Szukam kontaktu do pomocy', next: Topic.help),
     ],
   ),
   Topic.plan: (
-    message: 'W Bezpiecznej Przystani otwórz moduł „Plan bezpieczeństwa”. Możesz tam zapisać m.in. zaufane osoby, bezpieczne miejsce i sposób dotarcia.',
+    message:
+        'W Bezpiecznej Przystani otwórz moduł „Plan bezpieczeństwa”. Możesz tam zapisać m.in. zaufane osoby, bezpieczne miejsce i sposób dotarcia.',
     choices: [(label: 'Szukam kontaktu do pomocy', next: Topic.help)],
   ),
   Topic.help: (
-    message: 'W Bezpiecznej Przystani otwórz moduł „Znajdź pomoc”. Znajdziesz tam kontakty i informacje o możliwościach uzyskania pomocy w Polsce.',
+    message:
+        'W Bezpiecznej Przystani otwórz moduł „Znajdź pomoc”. Znajdziesz tam kontakty i informacje o możliwościach uzyskania pomocy w Polsce.',
     choices: [(label: 'Chcę przygotować plan', next: Topic.plan)],
   ),
 };

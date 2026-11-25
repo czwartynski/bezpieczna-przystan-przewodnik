@@ -1,14 +1,21 @@
-# Bezpieczna Przystań · Przewodnik po wsparciu
+# Bezpieczna Przystań · Demo przewodnika
 
-Samodzielny prototyp Flutter Web. Rozmowa przebiega według drzewa wyborów w pliku `lib/scenario.dart`. Aplikacja nie wysyła ani nie zapisuje wyborów i nie łączy się z konsultantem.
+Pełna aplikacja Flutter z ekranem powitalnym, menu i przewodnikiem w module „Porozmawiaj ze wsparciem”. Przewodnik działa według gotowych ścieżek z pliku `lib/scenario.dart`. Wybory pozostają w pamięci bieżącego widoku.
 
-## Lokalny podgląd
+## Demo
+
+[Otwórz demo HTTPS](https://czwartynski.github.io/bezpieczna-przystan-przewodnik/). W przeglądarce używaj wyłącznie danych testowych. Dziennik, plan i nagrania w demo są dostępne do odświeżenia lub zamknięcia karty.
+
+GitHub Actions publikuje wersję Web po aktualizacji gałęzi `main`.
+
+## Uruchomienie lokalne
+
+Projekt używa Flutter 3.50.1.
 
 ```sh
 flutter pub get
+flutter analyze
 flutter run -d chrome
 ```
-
-Ścieżki planu i pomocy wskazują odpowiednie moduły głównej aplikacji. W prototypie ich treść jest przykładowa.
 
 [Informacje o przemocy domowej i możliwościach pomocy na Gov.pl](https://www.gov.pl/web/gov/skorzystaj-z-pomocy-dla-osob-dotknietych-przemoca-w-rodzinie)

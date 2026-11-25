@@ -1,6 +1,10 @@
 .dart_tool/
-build/
 .flutter-plugins*
+build/
 .idea/
 *.iml
 .DS_Store
+android/.gradle/
+android/local.properties
+android/key.properties
+*.jks

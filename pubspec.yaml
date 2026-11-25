@@ -1,5 +1,5 @@
-name: bezpieczna_przystan_przewodnik
-description: Przewodnik w formie czatu z gotowymi wyborami.
+name: bezpieczna_przystan
+description: Polska aplikacja wspierająca osoby doświadczające przemocy.
 publish_to: none
 version: 0.1.0+1
 environment:
