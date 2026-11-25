@@ -1,0 +1,12 @@
+name: bezpieczna_przystan_przewodnik
+description: Przewodnik w formie czatu z gotowymi wyborami.
+publish_to: none
+version: 0.1.0+1
+environment:
+  sdk: ^3.8.0
+dependencies:
+  flutter:
+    sdk: flutter
+  material_ui: ^1.5.0
+flutter:
+  uses-material-design: true
