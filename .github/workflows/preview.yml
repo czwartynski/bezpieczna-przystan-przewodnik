@@ -24,6 +24,7 @@ jobs:
         working-directory: build/web
         run: |
           python3 - <<'PYTHON'
+          import json
           import os
           from pathlib import Path
 
@@ -31,9 +32,17 @@ jobs:
           entry = f"main.{version}.dart.js"
           bootstrap = f"flutter_bootstrap.{version}.js"
           audio = f"audio.{version}.js"
+          asset_directory = Path(f"release-{version}")
+          repository = os.environ["GITHUB_REPOSITORY"].split("/", 1)[1]
+          asset_base = f"/{repository}/{asset_directory}/"
+          asset_directory.mkdir()
+          Path("assets").rename(asset_directory / "assets")
 
           loader = Path("flutter_bootstrap.js").read_text()
           assert '"mainJsPath":"main.dart.js"' in loader
+          assert "const config = {};" in loader
+          config = json.dumps({"assetBase": asset_base})
+          loader = loader.replace("const config = {};", f"const config = {config};")
           Path(bootstrap).write_text(loader.replace("main.dart.js", entry))
           Path("main.dart.js").rename(entry)
           Path("audio.js").rename(audio)
